@@ -46,7 +46,7 @@ Now we only have rows with `id1='id016'` in 1 of the compacted files. The query 
 
 Z Ordering data can significantly improve query performance. This graph shows the query time by Delta table version:
 
-![[image1.png]]
+![How computation is done](./image1.png)
 		(This result was collected for 1 billion rows, 395 delta table files, 27 compact files)
 ```python
 (
@@ -63,7 +63,7 @@ Delta tables store per-file metadata in the transaction log(caching). Engine can
 
 To make this possible, Delta tables store min/max values for columns in each file.
 
-![[image2.png]]
+![Performance test](./image2.png "Computation graph")
 
 Here computation cluster will only access 2 files which contain the ***id016***.
 
